@@ -1,5 +1,17 @@
 <?php
 include 'base.php';  // Solicito os dados do menu e exibo na tela.
+$cons = mysqli_connect("localhost","root","","greenti");
+
+$sql = "SELECT * from usuarios";
+$sql2 = "SELECT *  from contato";
+$result = mysqli_query($cons, $sql);
+$result2 = mysqli_query($cons, $sql2);
+    // Return the number of rows in result set
+$rowcount = mysqli_num_rows( $result );
+$rowcount2 = mysqli_num_rows($result2);    
+   
+
+
 ?>
 
        <!-- Begin Page Content -->
@@ -19,7 +31,7 @@ include 'base.php';  // Solicito os dados do menu e exibo na tela.
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Usuários Cadastrados</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"> $40,000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"> #   <?php echo  $rowcount ?>   </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -36,8 +48,8 @@ include 'base.php';  // Solicito os dados do menu e exibo na tela.
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                           Tipos de Clientes 1 </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"> $215,000</div>
+                           Pedidos cadastrados no site </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"> <?php echo  $rowcount2 ?> </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
